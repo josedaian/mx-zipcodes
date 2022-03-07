@@ -2,6 +2,7 @@
 declare(strict_types=1);
 namespace App\Http\Controllers\Api;
 
+use App\Exceptions\ZipCodeNotFound;
 use App\Http\Resources\ZipCodeResource;
 use App\Models\ZipCode;
 use Illuminate\Http\Request;
@@ -16,6 +17,10 @@ class ZipCodeController extends ApiController
                     ->where('zip_code', $zipCode)
                     ->first();
             });
+
+            if(!$zipCode){
+                throw new ZipCodeNotFound($zipCode);
+            }
 
             return $this->successResponse(new ZipCodeResource($zipCode));
         });
