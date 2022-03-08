@@ -13,7 +13,7 @@ class ZipCodeController extends ApiController
     function get(Request $request, string $zipCode){
         return $this->dispatchApiRequest($request, function () use($zipCode){
             $zipCodeData = Cache::rememberForever($zipCode, function() use($zipCode){
-                return ZipCode::with(['federalEntity', 'municipality', 'settlements.settlementType'])
+                return ZipCode::with(['federalEntity'])
                     ->where('zip_code', $zipCode)
                     ->first();
             });
