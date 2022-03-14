@@ -15,6 +15,7 @@ class FederalEntityResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'key' => $this->key,
             'name' => $this->name,
             'code' => $this->code,
         ];

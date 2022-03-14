@@ -9,5 +9,5 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class FederalEntity extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = ['code', 'name'];
+    protected $fillable = ['code', 'name', 'key'];
 }

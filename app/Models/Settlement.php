@@ -10,7 +10,7 @@ class Settlement extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['name', 'zone_type', 'settlement_type_id', 'zip_code_id'];
+    protected $fillable = ['name', 'zone_type', 'settlement_type_id', 'zip_code_id', 'key'];
 
     public function settlementType(){
         return $this->belongsTo(SettlementType::class);

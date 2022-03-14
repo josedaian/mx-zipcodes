@@ -16,6 +16,7 @@ class SettlementResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'key' => $this->key,
             'name' => $this->name,
             'zone_type' => $this->zone_type,
             'settlement_type' => new SettlementTypeResource($this->whenLoaded('settlementType'))

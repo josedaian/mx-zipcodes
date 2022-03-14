@@ -15,7 +15,8 @@ class MunicipalityResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'name' => $this->name
+            'key' => $this->key,
+            'name' => $this->name,
         ];
     }
 }
